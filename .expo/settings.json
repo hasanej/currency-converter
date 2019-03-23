@@ -1,0 +1,9 @@
+{
+  "hostType": "lan",
+  "lanType": "ip",
+  "dev": true,
+  "minify": false,
+  "urlRandomness": "2n-u9s",
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true
+}
