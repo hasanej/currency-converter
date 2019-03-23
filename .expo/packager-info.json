@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 4078,
-  "expoServerNgrokUrl": "https://2n-u9s.anonymous.currency-converter.exp.direct",
-  "packagerNgrokUrl": "https://packager.2n-u9s.anonymous.currency-converter.exp.direct",
-  "ngrokPid": 4094
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "webpackServerPort": null
 }
