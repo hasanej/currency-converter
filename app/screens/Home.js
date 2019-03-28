@@ -6,9 +6,9 @@ import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 
 const TEMP_BASE_CURRENCY = 'USD';
-const TEMP_QUOTE_CURRENCY = 'GBP';
-const TEMP_BASE_PRICE = '100';
-const TEMP_QUOTE_PRICE = '79.74';
+const TEMP_DESIRED_CURRENCY = 'IDR';
+const TEMP_BASE_PRICE = '1';
+const TEMP_DESIRED_PRICE = '14256.75';
 
 class Home extends Component {
   handleChangeText = () => {
@@ -37,9 +37,9 @@ class Home extends Component {
         />
         <InputWithButton
           editable={false}
-          buttonText={TEMP_QUOTE_CURRENCY}
+          buttonText={TEMP_DESIRED_CURRENCY}
           onPress={this.handlePressQuoteCurrency}
-          value={TEMP_QUOTE_PRICE}
+          value={TEMP_DESIRED_PRICE}
         />
       </Container>
     );
