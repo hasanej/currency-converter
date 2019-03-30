@@ -5,11 +5,14 @@ import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Buttons';
+import { LastConverted } from '../components/Text';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const TEMP_DESIRED_CURRENCY = 'IDR';
 const TEMP_BASE_PRICE = '1';
 const TEMP_DESIRED_PRICE = '14256.75';
+const TEMP_CONVERSION_RATE = 14256.75;
+const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
   handleChangeText = () => {
@@ -45,6 +48,12 @@ class Home extends Component {
           buttonText={TEMP_DESIRED_CURRENCY}
           onPress={this.handlePressQuoteCurrency}
           value={TEMP_DESIRED_PRICE}
+        />
+        <LastConverted
+          base={TEMP_BASE_CURRENCY}
+          desired={TEMP_DESIRED_CURRENCY}
+          date={TEMP_CONVERSION_DATE}
+          conversionRate={TEMP_CONVERSION_RATE}
         />
         <ClearButton
           text="Reverse Currency"
