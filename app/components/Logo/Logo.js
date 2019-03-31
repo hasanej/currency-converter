@@ -67,8 +67,8 @@ class Logo extends Component {
 
     const containerImageStyles = [
       styles.containerImage,
-      {}
-    ]
+      { width: containerImageWidth, height: containerImageWidth },
+    ];
   }
 };
 
