@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, KeyboardAvoidingView } from 'react-native';
 
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
@@ -42,29 +42,31 @@ class Home extends Component {
         <StatusBar backgroundColor="blue" barStyle="light-content" />
         <Header onPress={this.handleOptionPress} />
         <Logo />
-        <InputWithButton
-          buttonText={TEMP_BASE_CURRENCY}
-          onPress={this.handlePressBaseCurrency}
-          defaultValue={TEMP_BASE_PRICE}
-          keyboardType="numeric"
-          onChangeText={this.handleChangeText}
-        />
-        <InputWithButton
-          editable={false}
-          buttonText={TEMP_DESIRED_CURRENCY}
-          onPress={this.handlePressQuoteCurrency}
-          value={TEMP_DESIRED_PRICE}
-        />
-        <LastConverted
-          base={TEMP_BASE_CURRENCY}
-          desired={TEMP_DESIRED_CURRENCY}
-          date={TEMP_CONVERSION_DATE}
-          conversionRate={TEMP_CONVERSION_RATE}
-        />
-        <ClearButton
-          text="Reverse Currency"
-          onPress={this.handleSwapCurrency}
-        />
+        <KeyboardAvoidingView behavior="padding">
+          <InputWithButton
+            buttonText={TEMP_BASE_CURRENCY}
+            onPress={this.handlePressBaseCurrency}
+            defaultValue={TEMP_BASE_PRICE}
+            keyboardType="numeric"
+            onChangeText={this.handleChangeText}
+          />
+          <InputWithButton
+            editable={false}
+            buttonText={TEMP_DESIRED_CURRENCY}
+            onPress={this.handlePressQuoteCurrency}
+            value={TEMP_DESIRED_PRICE}
+          />
+          <LastConverted
+            base={TEMP_BASE_CURRENCY}
+            desired={TEMP_DESIRED_CURRENCY}
+            date={TEMP_CONVERSION_DATE}
+            conversionRate={TEMP_CONVERSION_RATE}
+          />
+          <ClearButton
+            text="Reverse Currency"
+            onPress={this.handleSwapCurrency}
+          />
+        </KeyboardAvoidingView>
       </Container>
     );
   }
