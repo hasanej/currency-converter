@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import {
-  View, Keyboard, Animated, Platform, Stylesheet, Text,
+  View, Keyboard, Animated, Platform, StyleSheet, Text,
 } from 'react-native';
 
 import styles from './styles';
@@ -25,11 +25,11 @@ class Logo extends Component {
   componentDidMount() {
     const name = Platform.OS === 'ios' ? 'Will' : 'Did';
     this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboard($name)Show',
+      `keyboard${name}Show`,
       this.keyboardWillShow,
     );
     this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboard($name)Hide',
+      `keyboard${name}Hide`,
       this.keyboardWillHide,
     );
   }
@@ -47,6 +47,10 @@ class Logo extends Component {
         toValue: styles.$smallContainerSize,
         duration: ANIMATION_DURATION,
       }),
+      Animated.timing(imageWidth, {
+        toValue: styles.$smallImageSize,
+        duration: ANIMATION_DURATION,
+      }),
     ]).start();
   };
 
@@ -56,6 +60,10 @@ class Logo extends Component {
     Animated.parallel([
       Animated.timing(containerImageWidth, {
         toValue: styles.$largeContainerSize,
+        duration: ANIMATION_DURATION,
+      }),
+      Animated.timing(imageWidth, {
+        toValue: styles.$largeImageSize,
         duration: ANIMATION_DURATION,
       }),
     ]).start();
@@ -69,21 +77,30 @@ class Logo extends Component {
       styles.containerImage,
       { width: containerImageWidth, height: containerImageWidth },
     ];
+    const imageStyles = [
+      styles.logo,
+      { width: imageWidth },
+      tintColor ? { tintColor } : null,
+    ];
+
+    return (
+      <View style={styles.container}>
+        <Animated.View style={containerImageStyles}>
+          <Animated.Image
+            resizeMode="contain"
+            style={[StyleSheet.absoluteFill, containerImageStyles]}
+            source={require('./images/background.png')}
+          />
+          <Animated.Image
+            resizeMode="contain"
+            style={imageStyles}
+            source={require('./images/logo.png')}
+          />
+        </Animated.View>
+        <Text style={styles.text}>Currency Converter</Text>
+      </View>
+    );
   }
-};
-
-const Logo = () => (
-  <View style={styles.container}>
-    <ImageBackground
-      resizeMode="contain"
-      style={styles.containerImage}
-      source={require('./images/background.png')}
-    >
-      <Image resizeMode="contain" style={styles.logo} source={require('./images/logo.png')} />
-    </ImageBackground>
-    <Text style={styles.text}>Currency Converter</Text>
-  </View>
-
-);
+}
 
 export default Logo;
