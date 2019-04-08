@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import {
   FlatList, StatusBar, View,
@@ -9,8 +10,13 @@ import { ListItem, Separator } from '../components/List';
 const TEMP_CURRENT_CURRENCY = 'IDR';
 
 class CurrencyList extends Component {
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
+
   handlePress = () => {
-    console.log('Row pressed');
+    const { navigation } = this.props;
+    navigation.goBack(null);
   };
 
   render() {
