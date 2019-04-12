@@ -6,7 +6,7 @@ import DropdownAlert from 'react-native-dropdownalert';
 class AlertProvider extends Component {
   static get childContextTypes() {
     return {
-      alertWithTypes: PropTypes.func,
+      alertWithType: PropTypes.func,
       alert: PropTypes.func,
     };
   }
