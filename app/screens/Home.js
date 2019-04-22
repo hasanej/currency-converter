@@ -39,11 +39,7 @@ class Home extends Component {
   };
 
   handleSwapCurrency = () => {
-    console.log('handle swap currency');
-  };
-
-  handleSwapCurrency = () => {
-    console.log('handle swap currency');
+    console.log(swapCurrency());
   };
 
   handleOptionsPress = () => {
